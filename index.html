@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Minecraft - kzHate</title>
+    <!-- Bootstrap CSS 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        /* Desplazamiento suave al hacer clic en el menú */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Configuración para que CADA sección ocupe la pantalla completa */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 4rem;
+            /* Espacio para evitar que la navbar tape contenido */
+            padding-bottom: 2rem;
+            box-sizing: border-box;
+        }
+
+        /* Hero Video específico */
+        .hero-video-container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #mi-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+
+            padding: 3rem 1rem;
+        }
+
+        #imagenWallpaper {
+            min-height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 0.5rem;
+        }
+
+        @font-face {
+            font-family: Minecraft;
+            src: url(Minecraft.ttf);
+        }
+
+        .nav-link {
+            font-family: Minecraft;
+        }
+
+        #quien_soy {
+            background: url(wallpaper.jpg) center no-repeat;
+            background-size: cover;
+        }
+
+        #que_es_Minecraft {
+            background: url(background.png) center no-repeat;
+            background-size: cover;
+        }
+
+        .img_circ {
+            background: url(thinkpad.jpg) center no-repeat;
+            background-size: cover;
+        }
+
+        #imagenWallpaper {
+            background: url(wallpaper.jpg) center no-repeat;
+            background-size: cover;
+        }
+
+        /* Estilos personalizados opcionales para potenciar la estética */
+    .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12) !important;
+    }
+    .mc-gradient-bg {
+        background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+    }
+    .img-container {
+        position: relative;
+        overflow: hidden;
+        min-height: 180px;
+        background: #111;
+    }
+    .img-container img {
+        object-fit: cover;
+        opacity: 0.85;
+        transition: transform 0.4s ease;
+    }
+    .img-container:hover img {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+
+    /* Efecto de elevación para las tarjetas */
+    .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.08) !important;
+    }
+    /* Estilo para la imagen circular */
+    .img-circ {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border: 4px solid #fff;
+    }
+    /* Banner de wallpaper de la derecha */
+    .wallpaper-banner {
+        position: relative;
+        min-height: 240px;
+        overflow: hidden;
+        background: #1e1e1e;
+    }
+    .wallpaper-banner img {
+        object-fit: cover;
+        opacity: 0.8;
+        transition: transform 0.4s ease;
+    }
+    .wallpaper-banner:hover img {
+        transform: scale(1.05);
+        opacity: 0.95;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Navegación Responsive -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top px-3">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+                <img src="Minecraft-Logo.png" alt="Logo Minecraft" width="180"
+                    class="d-inline-block align-text-top img-fluid">
+                <img src="isbo_logo.png" alt="Logo ISBO" width="120"
+                    class="d-inline-block align-text-top img-fluid ms-2">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavegacion"
+                aria-controls="menuNavegacion" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="menuNavegacion">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quien_soy">¿Quién soy?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#que_es_Minecraft">¿Qué es Minecraft?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#como_empezar">¿Cómo empezar?</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero / Fondo Video -->
+    <section id="home" class="FondoVideo hero-video-container text-white text-center p-0">
+        <video autoplay loop muted playsinline id="mi-video">
+            <source src="OfficialMinecraftTrailer.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay d-flex align-items-center h-100">
+            <div class="container" id="contenidoPrincipal">
+                <div class="row g-3 justify-content-center">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <a href="https://tlauncher.org/" class="btn btn-success btn-lg w-100 fw-bold shadow">Descargar
+                            GRATIS Aquí!</a>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <a href="https://www.minecraft.net/es-es"
+                            class="btn btn-primary btn-lg w-100 fw-bold shadow">Comprar Aquí!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección ¿Quién soy? -->
+    <section id="quien_soy" class="position-relative d-flex align-items-center py-5">
+        <div class="container position-relative z-2">
+
+            <!-- Título de la Sección -->
+            <div class="text-center mb-5">
+
+                <div class="divider-custom mx-auto bg-warning rounded" style="width: 80px; height: 4px;"></div>
+            </div>
+
+            <div class="row g-4 justify-content-center align-items-stretch">
+
+                <!-- Tarjeta 1: Perfil Personal -->
+                <div class="col-12 col-lg-5">
+                    <div style="background: rgba(0, 0, 0, 0.74);"
+                        class="glass-card h-100 p-4 rounded-4 shadow-lg text-white border border-secondary border-opacity-25 d-flex flex-column justify-content-center align-items-center text-center">
+
+                        <!-- Avatar / Imagen de Perfil -->
+                        <div class="avatar-wrapper mb-3 position-relative">
+                            <img src="thinkpad.jpg" alt="Foto de kzHate"
+                                class="rounded-circle img-fluid border border-3 border-warning shadow"
+                                style="width: 120px; height: 120px; object-fit: cover;">
+                        </div>
+
+                        <h3 class="h4 fw-bold text-warning mb-1">Joaquin Cor <span
+                                class="fs-6 text-light opacity-75">(kzHate)</span></h3>
+                        <p class="badge bg-danger px-3 py-2 mb-3">Estudiante ISBO - Uruguay</p>
+
+                        <p class="lead fs-6 text-light opacity-90 mb-0">
+                            ¡Hola! Soy un apasionado del gaming y estudiante del <strong>Instituto Superior De Brazo
+                                Oriental (ISBO)</strong>.
+                            Diseñé esta plataforma interactiva para acompañar a los nuevos jugadores en sus primeros
+                            pasos y guiarlos a sobrevivir la primera noche en Minecraft.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Guía de Inicio Rápido -->
+                <div class="col-12 col-lg-6">
+                    <div style="background: rgba(0, 0, 0, 0.74);"
+                        class="glass-card h-100 p-4 rounded-4 shadow-lg text-white border border-secondary border-opacity-25 d-flex flex-column justify-content-center">
+
+                        <h3 class="h4 fw-bold text-warning mb-4 d-flex align-items-center gap-2">
+                            <span>⚡</span> Guía de Supervivencia Básica
+                        </h3>
+
+                        <ul class="list-unstyled mb-0 d-flex flex-column gap-3">
+                            <li class="d-flex align-items-start gap-3">
+                                <span
+                                    class="badge bg-warning text-dark fs-6 rounded-circle p-0 d-flex align-items-center justify-content-center flex-shrink-0"
+                                    style="width: 32px; height: 32px;">1</span>
+                                <div>
+                                    <strong class="text-white">Consigue madera:</strong>
+                                    <p class="mb-0 fs-6 text-light opacity-75">Tala árboles para obtener troncos
+                                        básicos.</p>
+                                </div>
+                            </li>
+
+                            <li class="d-flex align-items-start gap-3">
+                                <span
+                                    class="badge bg-warning text-dark fs-6 rounded-circle p-0 d-flex align-items-center justify-content-center flex-shrink-0"
+                                    style="width: 32px; height: 32px;">2</span>
+                                <div>
+                                    <strong class="text-white">Crea tu Mesa de Crafteo:</strong>
+                                    <p class="mb-0 fs-6 text-light opacity-75">Abre tu inventario con <kbd
+                                            class="bg-dark text-warning">E</kbd>, convierte los troncos en tablones y
+                                        llena la cuadrícula de 2x2.</p>
+                                </div>
+                            </li>
+
+                            <li class="d-flex align-items-start gap-3">
+                                <span
+                                    class="badge bg-warning text-dark fs-6 rounded-circle p-0 d-flex align-items-center justify-content-center flex-shrink-0"
+                                    style="width: 32px; height: 32px;">3</span>
+                                <div>
+                                    <strong class="text-white">Explora el Libro de Recetas:</strong>
+                                    <p class="mb-0 fs-6 text-light opacity-75">Revisa las recetas disponibles, fabrica
+                                        herramientas de piedra, busca una mina ¡y mantente con vida!</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<!-- Sección ¿Qué es Minecraft? -->
+<section id="que_es_Minecraft" class="py-5 bg-light">
+    <div class="container py-3">
+        
+        <!-- Título de Sección -->
+      
+
+        <div class="row g-4 align-items-stretch">
+            
+            <!-- Columna Izquierda: Tarjeta Principal -->
+            <div class="col-12 col-lg-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100 p-4 p-md-5 card-hover bg-white d-flex flex-column justify-content-between" style="margin-top: 20px;">
+                    <div>
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="bg-success bg-opacity-10 text-success p-3 rounded-4 d-flex align-items-center justify-content-center" style="width: 54px; height: 54px;">
+                                <i class="bi bi-box-seam-fill fs-3"></i>
+                            </div>
+                            <h3 class="h4 mb-0 fw-bold">Libertad Creativa Sin Límites</h3>
+                        </div>
+                        <p class="text-muted leading-relaxed fs-6">
+                            Minecraft es un juego de construcción de mundo abierto (*sandbox*) donde los jugadores exploran un mundo tridimensional infinito compuesto por bloques pixelados.
+                        </p>
+                        <p class="text-muted leading-relaxed fs-6 mb-0">
+                            Puedes recolectar recursos, fabricar herramientas (*crafting*), construir impresionantes estructuras y enfrentarte a criaturas en el modo de supervivencia o dar rienda suelta a tu imaginación sin restricciones en el modo creativo.
+                        </p>
+                    </div>
+
+                    <!-- Métricas / Datos rápidos en la parte inferior -->
+                    <div class="pt-4 mt-4 border-top d-flex justify-content-around text-center">
+                        <div>
+                            <span class="fw-bold fs-4 text-success d-block">+300M</span>
+                            <small class="text-muted">Copias vendidas</small>
+                        </div>
+                        <div class="border-start"></div>
+                        <div>
+                            <span class="fw-bold fs-4 text-success d-block">Infinito</span>
+                            <small class="text-muted">Mundo a explorar</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Tarjetas Secundarias e Imagen -->
+            <div class="col-12 col-lg-6">
+                <div class="d-flex flex-column gap-4 h-100" style="margin-top: 20px;">
+                    
+                    <!-- Tarjeta Superior: Modos de Juego -->
+                    <div class="card border-0 shadow-sm rounded-4 p-4 card-hover bg-white">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="bg-warning bg-opacity-10 text-warning p-3 rounded-4 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 48px; height: 48px;">
+                                <i class="bi bi-controller fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5 fw-bold mb-2">Para todos los estilos de juego</h4>
+                                <p class="text-muted mb-0 fs-6">
+                                    Ya sea en solitario o con amigos en servidores multijugador, ofrece una experiencia adaptable: desde la calma de la granja hasta desafíos intensos de supervivencia.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta Inferior: Espacio para Imagen/Banner visual -->
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden flex-grow-1 img-container card-hover d-flex align-items-center justify-content-center text-white">
+                        <!-- Imagen de fondo (reemplazar src por la URL de tu imagen) -->
+                        <img src="paisaje-minecraft-de-bosque-con-lago-13756.jpg" class="position-absolute w-100 h-100" alt="Mundo de Minecraft">
+                        
+                        <!-- Capa de superposición para legibilidad -->
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
+                        
+                        <!-- Contenido sobre la imagen -->
+                        <div class="position-relative z-1 p-4 text-center">
+                            <i class="bi bi-play-circle-fill display-5 text-warning mb-2 d-inline-block"></i>
+                            <h4 class="fw-bold mb-1">¡Crea tu propio mundo!</h4>
+                            <p class="small mb-0 opacity-75">El único límite es tu propia imaginación.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Sección ¿Cómo empezar? -->
+<section id="como_empezar" class="py-5 bg-light">
+    <div class="container py-3">
+        
+        <!-- Encabezado de Sección -->
+        <div class="row g-4 align-items-stretch">
+            
+            <!-- Columna Izquierda: Galería y Trucos -->
+            <div class="col-12 col-lg-6 d-flex flex-column gap-3">
+                
+                <!-- Tarjeta de Imágenes Promocionales -->
+                <div class="card border-0 shadow-sm rounded-4 p-3 bg-white card-hover">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-12 col-sm-6 text-center">
+                            <img src="comoempezar.jpg" class="img-fluid rounded-3 shadow-sm w-100" style="height: 120px; object-fit: cover;" alt="Cómo empezar en Minecraft">
+                        </div>
+                        <div class="col-12 col-sm-6 text-center d-flex justify-content-center align-items-center">
+                            <div class="img-circ rounded-circle bg-secondary shadow-sm d-flex align-items-center justify-content-center text-white overflow-hidden">
+                                <!-- Reemplazar con <img src="..." class="w-100 h-100 object-fit-cover"> si usas imagen -->
+                                <i class="bi bi-compass fs-1 text-light opacity-75"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Truco 1 -->
+                <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 bg-white card-hover">
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="bg-success bg-opacity-10 text-success p-2 rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 42px; height: 42px;">
+                            <i class="bi bi-lightning-charge-fill fs-5"></i>
+                        </div>
+                        <div>
+                            <span class="badge bg-success bg-opacity-10 text-success fw-bold mb-1">Truco 1: Impulso bajo árboles</span>
+                            <p class="mb-0 text-muted fs-6">
+                                Si te persiguen en un bosque, corre saltando repetidamente bajo hojas situadas a 2 bloques de altura. Al chocar la cabeza con los bloques, mantendrás una aceleración superior.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Truco 2 -->
+                <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 bg-white card-hover">
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="bg-danger bg-opacity-10 text-danger p-2 rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 42px; height: 42px;">
+                            <i class="bi bi-exclamation-triangle-fill fs-5"></i>
+                        </div>
+                        <div>
+                            <span class="badge bg-danger bg-opacity-10 text-danger fw-bold mb-1">Truco 2: Cuidado con la gravedad</span>
+                            <p class="mb-0 text-muted fs-6">
+                                ¡Cuidado con la arena y la grava flotante! Actualizar sus bloques cerca en cuevas o minas provocará su caída inmediata, arriesgándote a morir sofocado.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Columna Derecha: Equipamiento y Banner -->
+            <div class="col-12 col-lg-6 d-flex flex-column gap-3">
+                
+                <!-- Guía Full Hierro -->
+                <div class="card border-0 shadow-sm rounded-4 p-4 bg-white card-hover">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-4 d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;">
+                            <i class="bi bi-shield-lock-fill fs-4"></i>
+                        </div>
+                        <h3 class="h5 fw-bold mb-0">Consigue tu equipamiento "Full Hierro"</h3>
+                    </div>
+                    <p class="text-muted fs-6 mb-0">
+                        Tras fabricar tus primeras herramientas de piedra, llena los bordes de la cuadrícula de 3x3 en la mesa de crafteo dejando el centro libre para obtener un **Horno**. Con él podrás fundir mineral de hierro usando carbón para craftear tu primera armadura completa y herramientas duraderas.
+                    </p>
+                </div>
+
+                <!-- Wallpaper / Banner visual -->
+                <div id="imagenWallpaper" class="card border-0 shadow-sm rounded-4 wallpaper-banner card-hover flex-grow-1 d-flex align-items-center justify-content-center text-white text-center">
+                    <!-- Imagen de Fondo (Ruta a tu wallpaper) -->
+                    <img src="OIP (1).webp" class="position-absolute w-100 h-100" alt="Minecraft Wallpaper">
+                    
+                    <!-- Overlay degradado -->
+                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
+                    
+                    <!-- Contenido Banner -->
+                    <div class="position-relative z-1 p-4">
+                        <i class="bi bi-gem fs-1 text-warning mb-2 d-inline-block"></i>
+                        <h4 class="fw-bold mb-1">¡Prepárate para las Profundidades!</h4>
+                        <p class="small mb-0 opacity-75">La minería requiere preparación y buenas herramientas.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Bootstrap JS Bundle con Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
